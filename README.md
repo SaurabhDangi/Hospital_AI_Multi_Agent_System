@@ -14,11 +14,9 @@ The system uses an Orchestrator Agent to classify incoming questions and automat
 The application provides a single conversational interface through Streamlit.
 
 🚀 Live Demo  https://hospitalaimultiagentsystem-i8mypdaew5njj8h6thhwcs.streamlit.app/
+
 ## 🏗️ Architecture
-```text<img width="1205" height="504" alt="Screenshot 2026-08-11 163343" src="https://github.com/user-attachments/assets/956f1932-1f5e-4737-bcbf-8c5164db0b92" />
-<img width="790" height="350" alt="Screenshot 2026-08-11 163129" src="https://github.com/user-attachments/assets/8f741ce7-91cc-45ba-9571-1eb144e8c053" />
-<img width="1902" height="970" alt="Screenshot 2026-08-11 162109" src="https://github.com/user-attachments/assets/5f177033-f26f-40e4-ba31-8080335830b2" />
-<img width="1917" height="961" alt="Screenshot 2026-08-11 162023" src="https://github.com/user-attachments/assets/e9756997-b8ca-41ce-a935-c027fac2c88f" />
+```text
 
 
                     User
@@ -43,4 +41,24 @@ The application provides a single conversational interface through Streamlit.
                      v
                 Final Answer
 
+```
 
+🚀 Live Demo  https://hospitalaimultiagentsystem-i8mypdaew5njj8h6thhwcs.streamlit.app/
+
+## 📸 Project Screenshots
+
+### NLP-to-SQL Agent
+
+![NLP-to-SQL Agent](./screenshots/01_sql_agent.png)
+
+### Database Query
+
+![Database Query](./screenshots/02_database_result.png)
+
+### RAG Agent
+
+![RAG Agent](./screenshots/03_rag_agent.png)
+
+### Out-of-Scope Query
+
+![Out-of-Scope Query](./screenshots/04_out_of_scope.png)
