@@ -1,0 +1,17 @@
+
+HOSPITAL ADMISSION POLICY
+
+Patients requiring hospital care must complete the admission process.
+
+The admission process includes:
+1. Patient identification
+2. Registration
+3. Medical assessment
+4. Insurance verification when applicable
+5. Assignment of a hospital room
+
+Emergency patients should be prioritized according to the severity
+of their condition.
+
+Patient information must be recorded accurately in the hospital
+management system.
