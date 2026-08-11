@@ -3,7 +3,19 @@ import os
 import sqlite3
 import pandas as pd
 import faiss
+# Project paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+DB_PATH = os.path.join(
+    BASE_DIR,
+    "data",
+    "hospital.db"
+)
+
+DOCUMENTS_PATH = os.path.join(
+    BASE_DIR,
+    "documents"
+)
 from sentence_transformers import SentenceTransformer
 from google import genai
 
