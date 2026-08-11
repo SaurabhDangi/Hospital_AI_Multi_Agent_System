@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cfa72f7a-303d-4774-8965-07faf3f79140" />
+
 # 🏥 Hospital AI Assistant
 
 An AI-powered multi-agent application that allows hospital staff to query synthetic patient records and hospital policy documents using plain English.
