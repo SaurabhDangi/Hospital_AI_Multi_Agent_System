@@ -39,9 +39,3 @@ The application provides a single conversational interface through Streamlit.
                 Final Answer
 
 
-
-![RAG Agent](./screenshots/03_rag_agent.png)
-
-### Out-of-Scope Query
-
-![Out-of-Scope Query](./screenshots/04_out_of_scope.png)
