@@ -127,16 +127,15 @@ def validate_sql(sql):
 
 def run_sql(query):
 
-    connection = sqlite3.connect(
-        "data/hospital.db"
-    )
+    connection = sqlite3.connect(DB_PATH)
 
-    result = pd.read_sql_query(
-        query,
-        connection
-    )
-
-    connection.close()
+    try:
+        result = pd.read_sql_query(
+            query,
+            connection
+        )
+    finally:
+        connection.close()
 
     return result
 
@@ -186,12 +185,12 @@ def format_sql_answer(question, result):
 
 documents = []
 
-for filename in os.listdir("documents"):
+for filename in os.listdir(DOCUMENTS_PATH):
 
     if filename.endswith(".txt"):
 
         filepath = os.path.join(
-            "documents",
+            DOCUMENTS_PATH,
             filename
         )
 
