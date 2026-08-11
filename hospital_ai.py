@@ -16,6 +16,9 @@ DOCUMENTS_PATH = os.path.join(
     BASE_DIR,
     "documents"
 )
+print("Database path:", DB_PATH)
+print("Database exists:", os.path.exists(DB_PATH))
+
 from sentence_transformers import SentenceTransformer
 from google import genai
 
