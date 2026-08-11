@@ -15,7 +15,6 @@ The application provides a single conversational interface through Streamlit.
 
 🚀 Live Demo  https://hospitalaimultiagentsystem-i8mypdaew5njj8h6thhwcs.streamlit.app/
 ## 🏗️ Architecture
-
 ```text
                     User
                      |
@@ -39,19 +38,7 @@ The application provides a single conversational interface through Streamlit.
                      v
                 Final Answer
 
-'''
 
-## 📸 Project Screenshots
-
-### NLP-to-SQL Agent
-
-![NLP-to-SQL Agent](./screenshots/01_sql_agent.png)
-
-### Database Query
-
-![Database Query](./screenshots/02_database_result.png)
-
-### RAG Agent
 
 ![RAG Agent](./screenshots/03_rag_agent.png)
 
