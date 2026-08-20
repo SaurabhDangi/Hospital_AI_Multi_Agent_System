@@ -1,11 +1,9 @@
 import streamlit as st
 import hospital_ai
-import textwrap
 
-st.title("🔥 NEW VERSION TEST")
 
 # =========================================================
-# PAGE CONFIGURATION
+# PAGE CONFIG
 # =========================================================
 
 st.set_page_config(
@@ -20,220 +18,228 @@ st.set_page_config(
 # CUSTOM CSS
 # =========================================================
 
-st.markdown(
-    textwrap.dedent("""
-    <style>
+st.markdown("""
+<style>
 
-    /* =========================
-       GLOBAL
-       ========================= */
+.stApp {
+    background-color: #0e1117;
+}
 
-    .stApp {
-        background: #0e1117;
-    }
-
-    .block-container {
-        max-width: 1200px;
-        padding-top: 2rem;
-        padding-bottom: 3rem;
-    }
+.block-container {
+    max-width: 1200px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
 
 
-    /* =========================
-       HEADER
-       ========================= */
+/* ================= HEADER ================= */
 
-    .main-header {
-        padding: 25px 30px;
-        border-radius: 18px;
-        background: linear-gradient(
-            135deg,
-            #151a23,
-            #1c2430
-        );
-        border: 1px solid #2b3442;
-        margin-bottom: 30px;
-    }
+.main-header {
+    background: linear-gradient(
+        135deg,
+        #151a23,
+        #1d2633
+    );
 
-    .main-title {
-        font-size: 42px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 8px;
-    }
+    border: 1px solid #2d3745;
+    border-radius: 20px;
 
-    .subtitle {
-        font-size: 17px;
-        color: #aeb7c4;
-        margin-bottom: 18px;
-    }
+    padding: 35px;
 
-    .status {
-        display: inline-block;
-        padding: 7px 14px;
-        border-radius: 20px;
-        background: #123c2a;
-        color: #4ade80;
-        font-size: 14px;
-        font-weight: 600;
-    }
+    margin-bottom: 35px;
+}
 
+.main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+}
 
-    /* =========================
-       SECTION TITLES
-       ========================= */
+.subtitle {
+    font-size: 17px;
+    color: #aeb7c4;
+    margin-top: 10px;
+}
 
-    .section-title {
-        font-size: 25px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
+.status {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    background-color: #123c2a;
+
+    color: #4ade80;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
 
 
-    /* =========================
-       AGENT CARDS
-       ========================= */
+/* ================= SECTION ================= */
 
-    .agent-card {
-        min-height: 190px;
-        padding: 24px;
-        border-radius: 16px;
-        background: #151a23;
-        border: 1px solid #2b3442;
-        transition: 0.2s;
-    }
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
 
-    .agent-card:hover {
-        border-color: #4f8cff;
-        transform: translateY(-2px);
-    }
-
-    .agent-icon {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
-
-    .agent-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 10px;
-    }
-
-    .agent-description {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #aeb7c4;
-    }
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
 
 
-    /* =========================
-       QUERY BOX
-       ========================= */
+/* ================= AGENT CARDS ================= */
 
-    .query-container {
-        margin-top: 30px;
-        padding: 25px;
-        border-radius: 18px;
-        background: #151a23;
-        border: 1px solid #2b3442;
-    }
+.agent-card {
+    background-color: #151a23;
 
+    border: 1px solid #2d3745;
 
-    /* =========================
-       RESULT CARD
-       ========================= */
+    border-radius: 16px;
 
-    .result-card {
-        padding: 25px;
-        border-radius: 18px;
-        background: #151a23;
-        border: 1px solid #2b3442;
-        margin-top: 25px;
-    }
+    padding: 25px;
 
-    .result-label {
-        font-size: 14px;
-        color: #8b98a9;
-        margin-bottom: 5px;
-    }
+    min-height: 190px;
+}
 
-    .result-answer {
-        font-size: 22px;
-        font-weight: 600;
-        color: #ffffff;
-        line-height: 1.5;
-    }
+.agent-icon {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.agent-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #ffffff;
+
+    margin-bottom: 10px;
+}
+
+.agent-description {
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: #aeb7c4;
+}
 
 
-    /* =========================
-       AGENT BADGE
-       ========================= */
+/* ================= RESULT ================= */
 
-    .agent-badge {
-        display: inline-block;
-        padding: 8px 15px;
-        border-radius: 20px;
-        background: #123c2a;
-        color: #4ade80;
-        font-weight: 600;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
+.result-box {
+    background-color: #151a23;
 
+    border: 1px solid #2d3745;
 
-    /* =========================
-       SIDEBAR
-       ========================= */
+    border-radius: 16px;
 
-    [data-testid="stSidebar"] {
-        background: #11151c;
-        border-right: 1px solid #252c36;
-    }
+    padding: 25px;
 
-    .sidebar-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 20px;
-    }
+    margin-top: 25px;
+}
 
-    .sidebar-agent {
-        padding: 10px 0;
-        color: #c4ccd6;
-        font-size: 15px;
-    }
+.result-label {
+    font-size: 13px;
 
-    .sidebar-info {
-        margin-top: 25px;
-        padding: 15px;
-        border-radius: 12px;
-        background: #182b44;
-        color: #9ec5ff;
-        font-size: 13px;
-        line-height: 1.5;
-    }
+    color: #8b98a9;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.result-answer {
+    font-size: 21px;
+
+    color: #ffffff;
+
+    line-height: 1.6;
+}
 
 
-    /* =========================
-       FOOTER
-       ========================= */
+/* ================= AGENT BADGE ================= */
 
-    .footer {
-        text-align: center;
-        margin-top: 45px;
-        padding-top: 20px;
-        border-top: 1px solid #252c36;
-        color: #6f7b8a;
-        font-size: 13px;
-    }
+.agent-badge {
+    display: inline-block;
 
-    </style>
-    """),
-    unsafe_allow_html=True
-)
+    background-color: #123c2a;
+
+    color: #4ade80;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 20px;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+[data-testid="stSidebar"] {
+    background-color: #11151c;
+}
+
+.sidebar-title {
+    font-size: 23px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-bottom: 20px;
+}
+
+.sidebar-item {
+    color: #c4ccd6;
+
+    padding: 8px 0;
+
+    font-size: 15px;
+}
+
+.sidebar-info {
+    background-color: #182b44;
+
+    color: #9ec5ff;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    text-align: center;
+
+    color: #6f7b8a;
+
+    font-size: 13px;
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #252c36;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 
 # =========================================================
@@ -242,168 +248,171 @@ st.markdown(
 
 with st.sidebar:
 
+    st.markdown("""
+    <div class="sidebar-title">
+        🏥 Hospital AI
+    </div>
+    """, unsafe_allow_html=True)
+
     st.markdown(
-        textwrap.dedent("""
-        <div class="sidebar-title">
-            🏥 Hospital AI
-        </div>
-        """),
+        "<h4>🤖 Multi-Agent Architecture</h4>",
         unsafe_allow_html=True
     )
 
-    st.write("### 🤖 Multi-Agent System")
-
-    st.markdown(
-        """
-        <div class="sidebar-agent">🧠 Orchestrator Agent</div>
-        <div class="sidebar-agent">🗄️ NLP-to-SQL Agent</div>
-        <div class="sidebar-agent">📚 RAG Agent</div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <div class="sidebar-item">🧠 Orchestrator Agent</div>
+    <div class="sidebar-item">🗄️ NLP-to-SQL Agent</div>
+    <div class="sidebar-item">📚 RAG Agent</div>
+    """, unsafe_allow_html=True)
 
     st.divider()
 
-    st.write("### System")
-
-    st.write("🟢 AI System Online")
-    st.write("🗃️ SQLite Database")
-    st.write("🔎 FAISS Retrieval")
-    st.write("✨ Gemini AI")
-
     st.markdown(
-        textwrap.dedent("""
-        <div class="sidebar-info">
-            Patient data is synthetic and used only
-            for demonstration purposes.
-        </div>
-        """),
+        "<h4>⚙️ System</h4>",
         unsafe_allow_html=True
     )
+
+    st.markdown("""
+    <div class="sidebar-item">🟢 AI System Online</div>
+    <div class="sidebar-item">🗃️ SQLite Database</div>
+    <div class="sidebar-item">🔎 FAISS Retrieval</div>
+    <div class="sidebar-item">✨ Gemini AI</div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="sidebar-info">
+        Patient data is synthetic and used only
+        for demonstration purposes.
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # =========================================================
 # HEADER
 # =========================================================
 
-st.markdown(
-    textwrap.dedent("""
-    <div class="main-header">
+st.html("""
+<div class="main-header">
 
-        <div class="main-title">
-            🏥 Hospital AI Assistant
-        </div>
-
-        <div class="subtitle">
-            Intelligent multi-agent assistant for patient
-            records and hospital policy information.
-        </div>
-
-        <div class="status">
-            ● AI System Online
-        </div>
-
+    <div class="main-title">
+        🏥 Hospital AI Assistant
     </div>
-    """),
-    unsafe_allow_html=True
-)
+
+    <div class="subtitle">
+        Intelligent multi-agent assistant for patient
+        records and hospital policy information.
+    </div>
+
+    <div class="status">
+        ● AI System Online
+    </div>
+
+</div>
+""")
 
 
 # =========================================================
 # MULTI-AGENT ARCHITECTURE
 # =========================================================
 
-st.markdown(
-    '<div class="section-title">🤖 Multi-Agent Architecture</div>',
-    unsafe_allow_html=True
-)
+st.html("""
+<div class="section-title">
+    🤖 Multi-Agent Architecture
+</div>
+""")
+
 
 col1, col2, col3 = st.columns(3)
 
 
+# =========================================================
+# ORCHESTRATOR
+# =========================================================
+
 with col1:
 
-    st.markdown(
-        textwrap.dedent("""
-        <div class="agent-card">
+    st.html("""
+    <div class="agent-card">
 
-            <div class="agent-icon">
-                🧠
-            </div>
-
-            <div class="agent-title">
-                Orchestrator
-            </div>
-
-            <div class="agent-description">
-                Understands the user's question and routes
-                it to the appropriate specialist agent.
-            </div>
-
+        <div class="agent-icon">
+            🧠
         </div>
-        """),
-        unsafe_allow_html=True
-    )
 
+        <div class="agent-title">
+            Orchestrator
+        </div>
+
+        <div class="agent-description">
+            Understands the user's question and routes
+            it to the appropriate specialist agent.
+        </div>
+
+    </div>
+    """)
+
+
+# =========================================================
+# NLP TO SQL
+# =========================================================
 
 with col2:
 
-    st.markdown(
-        textwrap.dedent("""
-        <div class="agent-card">
+    st.html("""
+    <div class="agent-card">
 
-            <div class="agent-icon">
-                🗄️
-            </div>
-
-            <div class="agent-title">
-                NLP-to-SQL
-            </div>
-
-            <div class="agent-description">
-                Converts natural language questions into
-                safe read-only SQLite queries.
-            </div>
-
+        <div class="agent-icon">
+            🗄️
         </div>
-        """),
-        unsafe_allow_html=True
-    )
 
+        <div class="agent-title">
+            NLP-to-SQL
+        </div>
+
+        <div class="agent-description">
+            Converts natural language questions into
+            safe read-only SQLite queries.
+        </div>
+
+    </div>
+    """)
+
+
+# =========================================================
+# RAG
+# =========================================================
 
 with col3:
 
-    st.markdown(
-        textwrap.dedent("""
-        <div class="agent-card">
+    st.html("""
+    <div class="agent-card">
 
-            <div class="agent-icon">
-                📚
-            </div>
-
-            <div class="agent-title">
-                RAG Agent
-            </div>
-
-            <div class="agent-description">
-                Retrieves relevant information from hospital
-                policy documents using semantic search.
-            </div>
-
+        <div class="agent-icon">
+            📚
         </div>
-        """),
-        unsafe_allow_html=True
-    )
+
+        <div class="agent-title">
+            RAG Agent
+        </div>
+
+        <div class="agent-description">
+            Retrieves relevant information from hospital
+            policy documents using semantic search.
+        </div>
+
+    </div>
+    """)
 
 
 # =========================================================
 # QUESTION SECTION
 # =========================================================
 
-st.markdown(
-    '<div class="section-title">💬 Ask the Hospital AI</div>',
-    unsafe_allow_html=True
-)
+st.html("""
+<div class="section-title">
+    💬 Ask the Hospital AI
+</div>
+""")
+
 
 question = st.text_input(
     "Your question",
@@ -428,13 +437,13 @@ if ask_button:
     if not question.strip():
 
         st.warning(
-            "Please enter a question before clicking Ask AI."
+            "Please enter a question."
         )
 
     else:
 
         with st.spinner(
-            "🤖 Analyzing your question..."
+            "🤖 Processing your question..."
         ):
 
             try:
@@ -443,50 +452,40 @@ if ask_button:
                     question
                 )
 
-                # =================================================
+
+                # =============================================
                 # SELECTED AGENT
-                # =================================================
+                # =============================================
 
-                st.markdown(
-                    f"""
-                    <div class="agent-badge">
-                        ✓ Selected Agent: {response["agent"]}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
+                st.html(f"""
+                <div class="agent-badge">
+                    ✓ Selected Agent: {response["agent"]}
+                </div>
+                """)
 
 
-                # =================================================
+                # =============================================
                 # ANSWER
-                # =================================================
+                # =============================================
 
-                st.markdown(
-                    textwrap.dedent("""
-                    <div class="result-card">
+                st.html(f"""
+                <div class="result-box">
 
-                        <div class="result-label">
-                            AI RESPONSE
-                        </div>
-
+                    <div class="result-label">
+                        AI RESPONSE
                     </div>
-                    """),
-                    unsafe_allow_html=True
-                )
 
-                st.markdown(
-                    f"""
                     <div class="result-answer">
                         {response["answer"]}
                     </div>
-                    """,
-                    unsafe_allow_html=True
-                )
+
+                </div>
+                """)
 
 
-                # =================================================
+                # =============================================
                 # ROUTING DETAILS
-                # =================================================
+                # =============================================
 
                 with st.expander(
                     "🔍 View routing details"
@@ -498,9 +497,9 @@ if ask_button:
                     )
 
 
-                    # =============================================
+                    # =========================================
                     # SQL
-                    # =============================================
+                    # =========================================
 
                     if response.get("sql"):
 
@@ -514,9 +513,9 @@ if ask_button:
                         )
 
 
-                    # =============================================
+                    # =========================================
                     # RAG SOURCES
-                    # =============================================
+                    # =========================================
 
                     if response.get("sources"):
 
@@ -542,6 +541,7 @@ if ask_button:
                                     filename
                                 )
 
+
                         for filename in unique_sources:
 
                             st.write(
@@ -560,15 +560,17 @@ if ask_button:
 # EXAMPLE QUESTIONS
 # =========================================================
 
-st.markdown(
-    '<div class="section-title">💡 Try asking</div>',
-    unsafe_allow_html=True
-)
+st.html("""
+<div class="section-title">
+    💡 Example Questions
+</div>
+""")
 
-example_col1, example_col2, example_col3 = st.columns(3)
+
+example1, example2, example3 = st.columns(3)
 
 
-with example_col1:
+with example1:
 
     st.info(
         "🩺 **Patient Data**\n\n"
@@ -576,7 +578,7 @@ with example_col1:
     )
 
 
-with example_col2:
+with example2:
 
     st.info(
         "🏥 **Hospital Policy**\n\n"
@@ -584,7 +586,7 @@ with example_col2:
     )
 
 
-with example_col3:
+with example3:
 
     st.info(
         "💰 **Database Query**\n\n"
@@ -596,15 +598,12 @@ with example_col3:
 # FOOTER
 # =========================================================
 
-st.markdown(
-    textwrap.dedent("""
-    <div class="footer">
-        🏥 Hospital AI Assistant
-        &nbsp; • &nbsp;
-        Multi-Agent AI System
-        &nbsp; • &nbsp;
-        Synthetic Data for Demonstration
-    </div>
-    """),
-    unsafe_allow_html=True
-)
+st.html("""
+<div class="footer">
+    🏥 Hospital AI Assistant
+    &nbsp; • &nbsp;
+    Multi-Agent AI System
+    &nbsp; • &nbsp;
+    Synthetic Data for Demonstration
+</div>
+""")
