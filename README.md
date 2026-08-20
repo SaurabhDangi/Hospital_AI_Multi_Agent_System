@@ -49,16 +49,16 @@ The application provides a single conversational interface through Streamlit.
 
 ### NLP-to-SQL Agent
 
-![NLP-to-SQL Agent](./screenshots/01_sql_agent.png)
+![NLP-to-SQL Agent](./Screenshots/01_sql_agent.png)
 
 ### Database Query
 
-![Database Query](./screenshots/02_database_result.png)
+![Database Query](./Screenshots/02_database_result.png)
 
 ### RAG Agent
 
-![RAG Agent](./screenshots/03_rag_agent.png)
+![RAG Agent](./Screenshots/03_rag_agent.png)
 
 ### Out-of-Scope Query
 
-![Out-of-Scope Query](./screenshots/04_out_of_scope.png)
+![Out-of-Scope Query](./Screenshots/04_out_of_scope.png)
